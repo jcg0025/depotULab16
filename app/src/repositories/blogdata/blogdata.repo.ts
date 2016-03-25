@@ -6,12 +6,15 @@ export default class BlogdataRepository extends BaseRepository {
     constructor(private submitService: SubmitService){
         super();
     }
-    createPost(payload: Object): async.IAjaxThenable<boolean> {
+    createPost(payload: Object): async.IAjaxThenable<string> {
         return this.submitService.createPost(payload);
     }
     getAllPosts(): async.IAjaxThenable<Array<Object>> {
         return this.submitService.getAllPosts();
         
+    }
+    getPost(): async.IAjaxThenable<any> {
+        return this.submitService.getPost();
     }
 }
 

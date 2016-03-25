@@ -6,7 +6,16 @@ export default class SubmitService extends BaseService {
     constructor(private repository: BlogdataRepository){
         super();
     }
-    
+    // getPost(): async.IAjaxThenable<any> {
+    //     return this.http.json<any>({
+    //         url: this.host + '/posts',
+    //         method: 'GET'
+    //     }).then((success) => {
+    //         return success.response;
+    //     }).catch((error) => {
+    //         console.log(error);
+    //     })
+    }
     createPost(payload: any): async.IAjaxThenable<string> {
         return this.http.json<any>({
             url: this.host + '/posts',
@@ -23,7 +32,7 @@ export default class SubmitService extends BaseService {
     getAllPosts(): async.IAjaxThenable<Array<Object>> {
         return this.http.json<any>({
             url: this.host + '/posts',
-            method: 'GET',
+            method: 'GET'
         }).then((success) => {
             console.log(success);
             return <Array<Object>>success.response;
@@ -32,5 +41,7 @@ export default class SubmitService extends BaseService {
         })
     }
 }
+
+
 
 register.injectable('submit-svc', SubmitService, []);
