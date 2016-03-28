@@ -6,17 +6,17 @@ export default class SubmitService extends BaseService {
     constructor(private repository: BlogdataRepository){
         super();
     }
-    // getPost(): async.IAjaxThenable<any> {
-    //     return this.http.json<any>({
-    //         url: this.host + '/posts',
-    //         method: 'GET'
-    //     }).then((success) => {
-    //         return success.response;
-    //     }).catch((error) => {
-    //         console.log(error);
-    //     })
+    getPost(id: any): async.IAjaxThenable<any> {
+        return this.http.json<any>({
+            url: this.host + '/posts/' +id,
+            method: 'GET'
+        }).then((success) => {
+            return success.response;
+        }).catch((error) => {
+            console.log(error);
+        })
     }
-    createPost(payload: any): async.IAjaxThenable<string> {
+    createPost(payload: any): any{
         return this.http.json<any>({
             url: this.host + '/posts',
             method: 'POST',
@@ -29,7 +29,7 @@ export default class SubmitService extends BaseService {
         })
     }
     
-    getAllPosts(): async.IAjaxThenable<Array<Object>> {
+    getAllPosts(): any{
         return this.http.json<any>({
             url: this.host + '/posts',
             method: 'GET'

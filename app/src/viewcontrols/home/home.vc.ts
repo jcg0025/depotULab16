@@ -27,13 +27,13 @@ export default class HomeViewControl extends BaseViewControl {
             console.log(error);
         })
     }
-      test(): any {
-        this.repository.getPost().then((success) => {
-          console.log(success); 
-        }).catch((error) => {
-            console.log(error);
+      getPost(id: string) {
+        this.navigator.navigate(SinglepostViewControl, {
+            parameters: {
+                id: id
+            }
         })
     }
 }
 
-register.viewControl('home-vc', HomeViewControl, [BlogdataRepository]);
+register.viewControl('home-vc', HomeViewControl, [BlogdataRepository, SinglepostViewControl]);

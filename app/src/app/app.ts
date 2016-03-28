@@ -12,7 +12,7 @@ export default class MyApp extends App {
         router.configure([
             { pattern: '', view: HomeViewControl },
             { pattern: 'create', view: CreatepostViewControl},
-            { pattern: 'singleview/:id', view: SinglepostViewControl}
+            { pattern: 'posts/:id', view: SinglepostViewControl}
         ]);
     }
 

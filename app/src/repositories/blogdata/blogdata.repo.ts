@@ -13,8 +13,8 @@ export default class BlogdataRepository extends BaseRepository {
         return this.submitService.getAllPosts();
         
     }
-    getPost(): async.IAjaxThenable<any> {
-        return this.submitService.getPost();
+    getPost(id: any): async.IAjaxThenable<any> {
+        return this.submitService.getPost(id);
     }
 }
 
