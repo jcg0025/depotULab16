@@ -1,8 +1,18 @@
+<div class="create">
 <h1>Create Post</h1>
-<plat-input plat-bind='payload.title' placeholder='title'></plat-input>
-<plat-input plat-bind='payload.author' placeholder='author'></plat-input>
-<plat-input plat-bind='payload.content' placeholder='content'></plat-input>
-<div>{{title}}</div>
-<button plat-tap='createPost()'>Submit</button>
-
+<br>
+<plat-input class='input' plat-bind='payload.title' placeholder='title'></plat-input>
+<br>
+<br>
+<plat-input class='input' plat-bind='payload.author' placeholder='author'></plat-input>
+<br>
+<br>
+<br>
+<textarea id="content" cols="100" rows="30" plat-bind='payload.content' placeholder='content'></textarea>
+<br>
+<br>
+<plat-button id='submitButton' class='button-neutral button-outline' plat-tap='createPost()'>Submit</plat-button>
+<br>
+<br>
+</div>
 

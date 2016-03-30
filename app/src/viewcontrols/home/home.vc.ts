@@ -22,7 +22,7 @@ export default class HomeViewControl extends BaseViewControl {
     navigatedTo(){
         this.repository.getAllPosts().then((success) => {
             console.log(success);
-            this.context.posts = success;
+            this.context.posts = success.reverse();
         }).catch((error) => {
             console.log(error);
         })

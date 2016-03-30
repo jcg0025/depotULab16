@@ -1,6 +1,7 @@
 import {register} from 'platypus';
 import BaseViewControl from '../base/base.vc';
-import BlogdateRepository from '../../repositories/blogdata/blogdata.repo'
+import BlogdataRepository from '../../repositories/blogdata/blogdata.repo'
+import DeleteViewViewControl from '../../viewcontrols/deleteview/deleteview.vc'
 
 export default class SinglepostViewControl extends BaseViewControl {
     templateString: string = require('./singlepost.vc.html');
@@ -10,11 +11,12 @@ export default class SinglepostViewControl extends BaseViewControl {
             title: '',
             author: '',
             createdAt: '',
-            content: ''
+            content: '',
+            id: ''
        
     };
     
-    constructor(private repo: BlogdateRepository){
+    constructor(private repo: BlogdataRepository){
         super();
     }
     
@@ -26,9 +28,19 @@ export default class SinglepostViewControl extends BaseViewControl {
             this.context.author = success.author;
             this.context.createdAt = success.createdAt;
             this.context.content = success.content
+            this.context.id = success.id;
         })
     }
     
+    deleteThisPost(id: any) {
+        this.navigator.navigate(DeleteViewViewControl, {
+            parameters: {
+                id: id
+            }
+        });
+    }
+    
+    
 }
 
-register.viewControl('singlepost-vc', SinglepostViewControl, [BlogdateRepository]);
+register.viewControl('singlepost-vc', SinglepostViewControl, [BlogdataRepository, DeleteViewViewControl]);

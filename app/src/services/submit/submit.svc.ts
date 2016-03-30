@@ -12,7 +12,7 @@ export default class SubmitService extends BaseService {
             method: 'GET'
         }).then((success) => {
             return success.response;
-        }).catch((error) => {
+        }, (error) => {
             console.log(error);
         })
     }
@@ -24,9 +24,9 @@ export default class SubmitService extends BaseService {
         }).then((success) => {
             console.log('success');
             return success.response.id;
-        }).catch((error) => {
+        }, (error) => {
             console.log(error);
-        })
+        });
     }
     
     getAllPosts(): any{
@@ -36,9 +36,21 @@ export default class SubmitService extends BaseService {
         }).then((success) => {
             console.log(success);
             return <Array<Object>>success.response;
-        }).catch((error)=> {
+        }, (error)=> {
             console.log(error);
-        })
+        });
+    }
+    deletePost(id: any): any {
+        return this.http.json<any>({
+            url: this.host + '/posts/' +id,
+            method: 'DELETE'
+        }).then((success) => {
+            console.log(success);
+            return success;
+        }, (error) => {
+            console.log(error);
+            throw error;
+        });
     }
 }
 

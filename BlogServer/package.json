@@ -1,0 +1,12 @@
+{
+  "name": "BlogServer",
+  "version": "0.0.1",
+  "main": "server/server.js",
+  "author": "Platypi-David",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "latest",
+    "cors": "latest",
+    "express": "latest"
+  }
+}

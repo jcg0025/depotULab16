@@ -16,6 +16,9 @@ export default class BlogdataRepository extends BaseRepository {
     getPost(id: any): async.IAjaxThenable<any> {
         return this.submitService.getPost(id);
     }
+    deletePost(id: any): async.IAjaxThenable<any> {
+        return this.submitService.deletePost(id);
+    }
 }
 
 register.injectable('blogdata-repo', BlogdataRepository, [SubmitService]);

@@ -1,17 +1,22 @@
-<h1>Hi World!</h1>   
-<button plat-tap='go()'>Create Post</button>
+<plat-resources>
+    <injectable alias="f">formatter</injectable>
+</plat-resources>
+<div class="home">
+<h1>My Blog</h1>   
+<plat-button id='createButton' class='button-primary button-jumbo' plat-tap='go()'>Create Post</plat-button>
+
 <plat-foreach plat-context=“posts”>
-    <br>
-    {{title}}
-    <br>
-    {{author}}
-    <br>
-    {{content}}
-    <br>
-    {{createdAt}}
-    <br>
-    {{id}}
-    <br>
-    <button plat-tap='getPost(id)'>ReadMore</button>
-    <br>
+<br>
+  <div id="post"> 
+      <div id="innerPost">
+        <h3>{{title}}</h3>
+        <h4>{{author}}</h4>
+        <h5>{{@f.formatDate(createdAt)}}</h5>
+        <plat-button class='button-primary button-outline button-small' plat-tap='getPost(id)'>Read Post</plat-button>
+        <br>
+        <br>
+     </div>
+  </div>
+  <br>
 </plat-foreach>
+</div>
